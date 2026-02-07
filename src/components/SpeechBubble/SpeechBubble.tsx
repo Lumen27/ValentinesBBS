@@ -3,14 +3,16 @@ import { FC } from "react";
 import { wobbleAnimation } from "../utils";
 
 interface Props {
-  text: string;
+  text?: string | React.ReactNode;
   tailPosition?: "left" | "right";
+  extra?: React.ReactNode;
 }
 
 const SpeechBubbleWrapper = styled.div<{ tailPosition?: "left" | "right" }>`
   position: relative;
   display: inline-block;
   width: fit-content;
+  height: fit-content;
   background-color: #fffdf5;
   color: #4a4a4a;
   padding: 12px 24px;
@@ -21,7 +23,13 @@ const SpeechBubbleWrapper = styled.div<{ tailPosition?: "left" | "right" }>`
   font-family: sans-serif;
   font-weight: 600;
 
+  cursor: default;
+
   animation: ${wobbleAnimation} 3s ease-in-out infinite;
+
+  p {
+    white-space: pre-line;
+  }
 
   // &::after {
   //   content: "";
@@ -38,10 +46,11 @@ const SpeechBubbleWrapper = styled.div<{ tailPosition?: "left" | "right" }>`
   // }
 `;
 
-const SpeechBubble: FC<Props> = ({ text, tailPosition = "left" }) => {
+const SpeechBubble: FC<Props> = ({ text, tailPosition = "left", extra }) => {
   return (
     <SpeechBubbleWrapper tailPosition={tailPosition}>
       <p>{text}</p>
+      {extra}
     </SpeechBubbleWrapper>
   );
 };

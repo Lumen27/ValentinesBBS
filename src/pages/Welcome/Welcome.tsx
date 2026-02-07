@@ -4,6 +4,7 @@ import Part2_Coding from "./parts/Part2_Coding";
 import Part3_Question from "./parts/Part3_Question";
 import Part4_Answer from "./parts/Part4_Answer";
 import { useEffect, useState } from "react";
+import Part5_Result from "./parts/Part5_Result";
 
 const WelcomeWrapper = styled.div`
   display: flex;
@@ -34,12 +35,17 @@ const WelcomePage = () => {
 
   return (
     <WelcomeWrapper>
-      <Row>
-        {currentPart >= 0 && <Part1_Greeting />}
-        {currentPart > 0 && <Part2_Coding />}
-        {currentPart > 1 && <Part3_Question />}
-      </Row>
-      <AnswerWrapper>{currentPart > 2 && <Part4_Answer />}</AnswerWrapper>
+      {currentPart < 4 && (
+        <>
+          <Row>
+            {currentPart >= 0 && <Part1_Greeting />}
+            {currentPart > 0 && <Part2_Coding />}
+            {currentPart > 1 && <Part3_Question />}
+          </Row>
+          <AnswerWrapper>{currentPart > 2 && <Part4_Answer NextPart={NextPart} />}</AnswerWrapper>
+        </>
+      )}
+      <Row>{currentPart > 3 && <Part5_Result />}</Row>
     </WelcomeWrapper>
   );
 };
