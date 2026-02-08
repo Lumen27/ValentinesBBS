@@ -1,7 +1,8 @@
 import Button from "../../../../components/Button/Button";
 import SpeechBubble from "../../../../components/SpeechBubble/SpeechBubble";
 import { Column, Row } from "../../../../components/utils";
-import LetMeThink from "../../../../assets/LetMeThink.png";
+import ReactionJoke from "../../../../assets/ReactionJoke.png";
+import ReactionWTF from "../../../../assets/ReactionWTF.png";
 import { FC } from "react";
 import styled from "@emotion/styled";
 import { TryAgainWrapper } from "./utils";
@@ -11,13 +12,18 @@ interface Props {
   noCounter: number;
 }
 
-const Wrapper = styled(Column)`
-  gap: 32px;
-`;
-const ImgWrapper = styled(Column)`
+const ImgContainer = styled(Column)`
+  height: 260px;
+  width: auto;
   align-items: center;
-  font-weight: bold;
-  font-size: 24px;
+  overflow: hidden;
+
+  img {
+    width: auto;
+    height: 100%;
+    display: block;
+    position: relative;
+  }
 `;
 
 const RetryButtonWrapper = styled(Row)`
@@ -26,24 +32,20 @@ const RetryButtonWrapper = styled(Row)`
 
 const AnswerNo: FC<Props> = ({ onClick, noCounter }) => {
   return (
-    <Wrapper>
+    <Column gap={32}>
       <Row gap={16}>
         {noCounter === 1 && (
-          <Column>
+          <ImgContainer gap={16}>
             <SpeechBubble text="I'm sure you didnt mean to click that haha" />
-            <ImgWrapper>
-              <img src={LetMeThink} alt="LetMeThink" />
-            </ImgWrapper>
-          </Column>
+            <img src={ReactionJoke} alt="ReactionJoke " />
+          </ImgContainer>
         )}
 
         {noCounter > 1 && (
-          <Column>
+          <ImgContainer gap={16}>
             <SpeechBubble text="Вэтэфэк ббс, what do you mean by that 🤨" />
-            <ImgWrapper>
-              <img src={LetMeThink} alt="LetMeThink" />
-            </ImgWrapper>
-          </Column>
+            <img src={ReactionWTF} alt="ReactionWTF" />
+          </ImgContainer>
         )}
       </Row>
 
@@ -59,7 +61,7 @@ const AnswerNo: FC<Props> = ({ onClick, noCounter }) => {
           }
         />
       </TryAgainWrapper>
-    </Wrapper>
+    </Column>
   );
 };
 

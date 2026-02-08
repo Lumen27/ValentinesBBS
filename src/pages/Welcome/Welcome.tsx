@@ -45,7 +45,7 @@ const WelcomePage = () => {
           <AnswerWrapper>{currentPart > 2 && <Part4_Answer NextPart={NextPart} />}</AnswerWrapper>
         </>
       )}
-      <Row>{currentPart > 3 && <Part5_Result />}</Row>
+      {currentPart > 3 && <Part5_Result />}
     </WelcomeWrapper>
   );
 };

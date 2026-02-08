@@ -1,7 +1,7 @@
 import Button from "../../../../components/Button/Button";
 import SpeechBubble from "../../../../components/SpeechBubble/SpeechBubble";
 import { Column, Row } from "../../../../components/utils";
-import LetMeThink from "../../../../assets/LetMeThink.png";
+import ReactionWhat from "../../../../assets/ReactionWhat.png";
 import { FC } from "react";
 import styled from "@emotion/styled";
 import { TryAgainWrapper } from "./utils";
@@ -10,37 +10,36 @@ interface Props {
   onClick: () => void;
 }
 
-const Wrapper = styled(Column)`
-  gap: 32px;
-`;
-const ImgWrapper = styled(Column)`
+const ImgContainer = styled(Column)`
+  height: 360px;
+  width: auto;
   align-items: center;
-  font-weight: bold;
-  font-size: 24px;
+  overflow: hidden;
+
+  img {
+    width: auto;
+    height: 100%;
+    display: block;
+    position: relative;
+  }
 `;
 
 const AnswerIGuess: FC<Props> = ({ onClick }) => {
   return (
-    <Wrapper>
+    <Column gap={32}>
       <Row gap={16}>
-        <Column>
-          <SpeechBubble text={`You guess??`} />
-          <ImgWrapper>
-            <img src={LetMeThink} alt="LetMeThink" />
-          </ImgWrapper>
-        </Column>
-        <Column>
+        <ImgContainer>
           <SpeechBubble
             text={
               <>
-                I <i>guess</i> I'll go fuck myself then
+                You guess??
+                <br /> I <i>guess</i> I'll go fuck myself then
+                <br /> 6 7
               </>
             }
           />
-          <ImgWrapper>
-            <img src={LetMeThink} alt="LetMeThink" />
-          </ImgWrapper>
-        </Column>
+          <img src={ReactionWhat} alt="ReactionWhat" />
+        </ImgContainer>
       </Row>
 
       <TryAgainWrapper justify="center">
@@ -53,7 +52,7 @@ const AnswerIGuess: FC<Props> = ({ onClick }) => {
           }
         />
       </TryAgainWrapper>
-    </Wrapper>
+    </Column>
   );
 };
 

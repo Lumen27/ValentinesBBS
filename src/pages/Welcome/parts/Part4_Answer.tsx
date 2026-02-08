@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
 import SpeechBubble from "../../../components/SpeechBubble/SpeechBubble";
-import BananacatComputerSticker from "../../../assets/BananacatComputerSticker.png";
-import BananacatSticker from "../../../assets/BananacatSticker.png";
+import ReactionThinking from "../../../assets/ReactionThinking.png";
+import ReactionYes from "../../../assets/ReactionYes.png";
+import ReactionWrong from "../../../assets/ReactionWrong.png";
+import ReactionNo from "../../../assets/ReactionNo.png";
 import { FC, useState } from "react";
 import Button from "../../../components/Button/Button";
 import { Column, Row } from "../../../components/utils";
@@ -28,7 +30,6 @@ const Part4_Wrapper = styled.div`
 
 const WrongAnswers = styled(Column)`
   position: relative;
-  gap: 4px;
 `;
 
 const NoButtonWrapper = styled(Column)`
@@ -39,6 +40,27 @@ const Counter = styled.div`
   position: absolute;
   bottom: 0;
   right: 16px;
+`;
+
+const ImgContainer = styled(Row)`
+  width: 500px;
+  height: 500px;
+  align-items: flex-end;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+
+    &.previewYes {
+      bottom: -100px;
+    }
+    &.previewThinking {
+      bottom: -65px;
+    }
+  }
 `;
 
 const Part4_Answer: FC<{ NextPart: () => void }> = ({ NextPart }) => {
@@ -61,7 +83,7 @@ const Part4_Answer: FC<{ NextPart: () => void }> = ({ NextPart }) => {
 
   return (
     <Part4_Wrapper>
-      <SpeechBubble text="Will you be my valentine?" />
+      <SpeechBubble text="Will you be my Valentine?" />
 
       <Row isHidden={currentAnswer !== THINKING}>
         <Button
@@ -72,25 +94,19 @@ const Part4_Answer: FC<{ NextPart: () => void }> = ({ NextPart }) => {
           Yes
         </Button>
 
-        <Row>
+        <ImgContainer>
           {currentAnswerHover === YES && (
-            <img src={BananacatSticker} width="100" alt="bebas workin" />
+            <img src={ReactionYes} alt="bebas workin" className="previewYes" />
           )}
           {currentAnswerHover === THINKING && (
-            <img src={BananacatComputerSticker} width="100" alt="bebas workin" />
+            <img src={ReactionThinking} alt="bebas workin" className="previewThinking" />
           )}
-          {currentAnswerHover === HMM && (
-            <img src={BananacatComputerSticker} width="100" alt="bebas workin" />
-          )}
-          {currentAnswerHover === I_GUESS && (
-            <img src={BananacatComputerSticker} width="100" alt="bebas workin" />
-          )}
-          {currentAnswerHover === NO && (
-            <img src={BananacatSticker} width="100" alt="bebas workin" />
-          )}
-        </Row>
+          {currentAnswerHover === HMM && <img src={ReactionWrong} alt="bebas workin" />}
+          {currentAnswerHover === I_GUESS && <img src={ReactionWrong} alt="bebas workin" />}
+          {currentAnswerHover === NO && <img src={ReactionNo} alt="bebas workin" />}
+        </ImgContainer>
 
-        <WrongAnswers>
+        <WrongAnswers justify="flex-end">
           <Button
             variant="secondary"
             onMouseOver={() => handleHover(HMM)}

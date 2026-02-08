@@ -1,19 +1,13 @@
-import styled from "@emotion/styled";
-import BananacatSticker from "../../../assets/BananacatSticker.png";
+import ReactionHello from "../../../assets/ReactionHello.png";
 import SpeechBubble from "../../../components/SpeechBubble/SpeechBubble";
-
-const Part1_Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { Column } from "../../../components/utils";
 
 const Part1_Greeting = () => {
-  // wave
   return (
-    <Part1_Wrapper>
+    <Column gap={16}>
       <SpeechBubble text="Hello bbs!" />
-      <img src={BananacatSticker} width={130} alt="bebas workin" />
-    </Part1_Wrapper>
+      <img src={ReactionHello} width={130} alt="bebas workin" />
+    </Column>
   );
 };
 

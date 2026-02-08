@@ -1,21 +1,13 @@
-import styled from "@emotion/styled";
 import SpeechBubble from "../../../components/SpeechBubble/SpeechBubble";
-import BananacatSticker from "../../../assets/BananacatSticker.png";
-
-const Part3_Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import Reaction1Question from "../../../assets/Reaction1Question.png";
+import { Column } from "../../../components/utils";
 
 const Part3_Question = () => {
   return (
-    <Part3_Wrapper>
+    <Column gap={16} align="center">
       <SpeechBubble text="But in order to see it, you gotta answer 1 question:" />
-      <div>
-        <img src={BananacatSticker} width="200" alt="bebas workin" />
-      </div>
-    </Part3_Wrapper>
+      <img src={Reaction1Question} width="200" alt="bebas workin" />
+    </Column>
   );
 };
 

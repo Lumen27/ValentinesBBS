@@ -10,17 +10,12 @@ dayjs.extend(duration);
 interface Props {}
 
 const Wrapper = styled(Column)`
+  flex-grow: 1;
   gap: 32px;
-`;
-const ImgWrapper = styled(Column)`
-  align-items: center;
-  font-weight: bold;
-  font-size: 24px;
 `;
 
 const TimerWrapper = styled(Row)`
   gap: 8px;
-  color: #fffdf5;
   font-weight: bold;
   span {
     font-size: 24px;
@@ -53,7 +48,7 @@ const CountdownTimer: FC<Props> = ({}) => {
   return (
     <Wrapper>
       <TimerWrapper>
-        <span>{Math.floor(dur.asDays())}D</span>
+        <span>{Math.floor(dur.asDays())}d</span>
         <span>{dur.hours()}h</span>
         <span>{dur.minutes()}m</span>
         <span>{dur.seconds()}s</span>
