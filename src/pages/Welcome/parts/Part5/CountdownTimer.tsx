@@ -7,8 +7,6 @@ import duration from "dayjs/plugin/duration";
 
 dayjs.extend(duration);
 
-interface Props {}
-
 const Wrapper = styled(Column)`
   flex-grow: 1;
   gap: 32px;
@@ -22,7 +20,7 @@ const TimerWrapper = styled(Row)`
   }
 `;
 
-const CountdownTimer: FC<Props> = ({}) => {
+const CountdownTimer: FC = () => {
   // thumbs up floating gifs
   const targetDate = dayjs.tz("2026-02-14 00:00:00", "Asia/Tokyo");
   const [timeLeft, setTimeLeft] = useState(targetDate.diff(dayjs()));

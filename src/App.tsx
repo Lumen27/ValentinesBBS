@@ -1,6 +1,10 @@
 import WelcomePage from "./pages/Welcome/Welcome";
 import styled from "@emotion/styled";
 import { GlobalStyles } from "./components/GlobalStyles/GlobalStyles";
+import dayjs from "dayjs";
+import "dayjs/locale/ja";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
 const MAIN_BG = "#ff7e70";
 
@@ -12,11 +16,6 @@ const Main = styled.main`
 
   min-height: 100vh;
 `;
-
-import dayjs from "dayjs";
-import "dayjs/locale/ja";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
 
 dayjs.locale("ja");
 dayjs.extend(utc);

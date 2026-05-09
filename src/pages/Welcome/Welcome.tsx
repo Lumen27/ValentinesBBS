@@ -27,9 +27,10 @@ const WelcomePage = () => {
 
   useEffect(() => {
     if (currentPart < 3) {
-      setTimeout(() => {
-        NextPart();
+      const timer = setTimeout(() => {
+        setCurrentPart((prev) => prev + 1);
       }, 2000);
+      return () => clearTimeout(timer);
     }
   }, [currentPart]);
 
