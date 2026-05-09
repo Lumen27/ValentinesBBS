@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(node -e \"const r = require\\('./node_modules/eslint-plugin-react'\\); console.log\\(Object.keys\\(r.configs\\)\\)\")",
+      "Bash(node -e \"const r = require\\('./node_modules/eslint-plugin-react'\\); console.log\\(JSON.stringify\\(Object.keys\\(r.configs.flat\\), null, 2\\)\\)\")",
+      "Bash(node -e \"const r = require\\('./node_modules/eslint-plugin-react'\\); const cfg = r.configs.flat.recommended; console.log\\('keys:', Object.keys\\(cfg\\)\\); console.log\\('plugins:', Object.keys\\(cfg.plugins || {}\\)\\); console.log\\('settings:', JSON.stringify\\(cfg.settings\\)\\); console.log\\('rules sample:', Object.keys\\(cfg.rules\\).slice\\(0,3\\)\\)\")",
+      "Bash(node -e \"const r = require\\('./node_modules/eslint-plugin-react'\\); const cfg = r.configs.flat['jsx-runtime']; console.log\\('keys:', Object.keys\\(cfg\\)\\); console.log\\('rules:', JSON.stringify\\(cfg.rules\\)\\)\")"
+    ]
+  }
+}
